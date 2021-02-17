@@ -10,9 +10,11 @@ import (
 	"syscall"
 
 	"github.com/ishidawataru/sctp"
+	"github.com/docker/libnetwork/sigbomb"
 )
 
 func main() {
+	sigbomb.Start()
 	f := os.NewFile(3, "signal-parent")
 	host, container := parseHostContainerAddrs()
 
